@@ -7,6 +7,7 @@ import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.*;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 import com.qa.FreeCrm.util.TestUtil;
 
@@ -23,7 +24,7 @@ public class TestBase
 		try 
 		{
 			prop = new Properties();
-			FileInputStream ip = new FileInputStream("/Users/tony/FreeCrmWS/FreeCrmArId/src/main/java/com/qa/FreeCrm/config.properties");
+			FileInputStream ip = new FileInputStream("/Users/tony/FreeCrmWS/FreeCrmArId/src/main/java/com/qa/FreeCrm/config/config.properties");
 			prop.load(ip);
 		}catch(FileNotFoundException e)
 		{
@@ -40,7 +41,8 @@ public class TestBase
 		String browserName = prop.getProperty("browser");
 		if(browserName.equalsIgnoreCase("chrome"))
 		{
-			System.setProperty("webdriver.chrome.driver", "/Users/tony/FreeCrmWS/FreeCrmArId/src/chromedriver");
+			System.setProperty("webdriver.chrome.driver", "/Users/tony/FreeCrmWS/FreeCrmArId/src/chromedriver-2");
+			driver = new ChromeDriver();
 		}
 		
 		
@@ -49,7 +51,7 @@ public class TestBase
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
 		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
 		
-		driver.get(prop.getProperty("url"));
+		driver.get(prop.getProperty("loginUrl"));
 		
 	}
 	
