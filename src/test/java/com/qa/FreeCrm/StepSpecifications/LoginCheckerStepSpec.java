@@ -22,12 +22,11 @@ public LoginCheckerStepSpec()
 	PageFactory.initElements(driver, this);
 }
 	
-	
+	//Valid login page
 	@Given("^I am on the login page$")
 	public void i_am_on_the_login_page() throws Throwable {
 	    initialization();
 	    String actualLoginPageTitle = driver.getTitle();
-	    System.out.println("Actual page title is :" + actualLoginPageTitle);
 	    String expectedLoginPageTitle = "Cogmento CRM";
 	    Assert.assertEquals(expectedLoginPageTitle, actualLoginPageTitle);
 	}
@@ -48,6 +47,29 @@ public LoginCheckerStepSpec()
 		Assert.assertTrue(checkContactActivityIsDisplayed);
 		System.out.println("This is in the Then method - StepCCccccc");
 	}
+	
+	
+	
+	
+	//Invalid login page
+	@When("^I enter incorrect details$")
+	public void i_enter_incorrect_details() throws Throwable {
+		LoginPage lpge = new LoginPage();
+		lpge.signIn(prop.getProperty("invalid_username"), prop.getProperty("invalid_password"));
+		System.out.println("Have entered incorrect login/password and hit login button");
+	}
+
+	@Then("^I see the failed login message$")
+	public void i_see_the_failed_login_message() throws Throwable 
+	{
+		System.out.println("In the Then failed login msg method");
+		LoginPage lpge2 = new LoginPage();
+		String actualFailedLoginMsg = lpge2.checkInvalidSignInMsg();
+		String expectedFailedLoginMsg = "Invalid login";
+		Assert.assertEquals(expectedFailedLoginMsg, actualFailedLoginMsg);
+		System.out.println("At the end of the Then login message" + actualFailedLoginMsg);
+	}
+
 
 	
 	

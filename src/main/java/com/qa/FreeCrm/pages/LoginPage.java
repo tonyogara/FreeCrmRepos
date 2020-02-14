@@ -22,7 +22,11 @@ public class LoginPage extends TestBase
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]")
 	WebElement loginBtn;
+	
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/form[1]/div[1]/div[3]/p[1]")
+	WebElement invalidLoginMsg;
 
+	
 
 	public LoginPage()
 	{
@@ -50,6 +54,18 @@ public class LoginPage extends TestBase
 	}
 	
 	
+	public void invalidSignIn(String emailDetails, String pwd)
+	{
+		email.sendKeys(emailDetails);
+		password.sendKeys(pwd);
+		loginBtn.click();
+	}
+	
+	
+	public String checkInvalidSignInMsg()
+	{
+		return invalidLoginMsg.getText();
+	}
 	
 	
 }
