@@ -55,6 +55,28 @@ public class TestBase
 		
 	}
 	
+	public void initializationToHomepage()
+	{
+		
+		String browserName = prop.getProperty("browser");
+		if(browserName.equalsIgnoreCase("chrome"))
+		{
+			System.setProperty("webdriver.chrome.driver", "/Users/tony/FreeCrmWS/FreeCrmArId/src/chromedriver-2");
+			driver = new ChromeDriver();
+		}
+		
+		
+		driver.manage().window().maximize();
+		driver.manage().deleteAllCookies();
+		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(TestUtil.IMPLICIT_WAIT, TimeUnit.SECONDS);
+		
+		
+		driver.get(prop.getProperty("autoLoginUrl"));
+		
+	}
+	
+	
 	
 	
 	
