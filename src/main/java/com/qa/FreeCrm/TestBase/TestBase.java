@@ -45,6 +45,9 @@ public class TestBase
 			driver = new ChromeDriver();
 		}
 		
+		//String reportConfigPath = prop.getProperty("reportConfigPath");
+		
+		
 		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
@@ -66,6 +69,8 @@ public class TestBase
 		}
 		
 		
+		//String reportConfigPath = prop.getProperty("reportConfigPath");
+		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
@@ -76,7 +81,11 @@ public class TestBase
 		
 	}
 	
-	
+	public String getReportConfigPath(){
+		String reportConfigPath = prop.getProperty("reportConfigPath");
+		if(reportConfigPath!= null) return reportConfigPath;
+		else throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath");		
+	}
 	
 	
 	

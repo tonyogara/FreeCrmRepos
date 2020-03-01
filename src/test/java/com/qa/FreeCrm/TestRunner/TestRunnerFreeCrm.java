@@ -9,21 +9,28 @@ import org.junit.runner.RunWith;
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import com.qa.FreeCrm.util.TestUtil;
+import com.qa.FreeCrm.TestBase.TestBase;
 
-
-@RunWith(Cucumber.class)
-//@CucumberOptions(features="src/main/resources/Features/ContactCreation.feature", glue="StepSpecs", 
+@RunWith(Cucumber.class) 
 @CucumberOptions(features="src/main/resources/Features/ContactCreation.feature", glue="com.qa.FreeCrm.StepSpecifications",
-							plugin = {"pretty", "html:target/cucumber"})
+							plugin = {"pretty", "html:target/cucumber",
+									"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"
+							})
 
-//Plugin={“com.cucumber.listener.ExtentCucumberFormatter:target/html/ExtentReport.html“})
-///Users/tony/FreeCrmWS/FreeCrmArId/src/test/java/com/qa/FreeCrm/StepSpecifications
 
 
-public class TestRunnerFreeCrm 
+
+public class TestRunnerFreeCrm extends TestBase
 {
 	
-	
+	@AfterClass
+	public static void writeExtentReport() {
+		String reportConfigurationPath = prop.getProperty("reportConfigPath");
+		//Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
+		Reporter.loadXMLConfig(reportConfigurationPath);
+		
+	}
 	
 }
 

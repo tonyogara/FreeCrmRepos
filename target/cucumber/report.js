@@ -149,35 +149,35 @@ formatter.match({
   "location": "CreateContactStepSpec.i_am_on_the_login_page()"
 });
 formatter.result({
-  "duration": 4177263650,
+  "duration": 7483998321,
   "status": "passed"
 });
 formatter.match({
   "location": "CreateContactStepSpec.i_enter_details()"
 });
 formatter.result({
-  "duration": 481607515,
+  "duration": 537913116,
   "status": "passed"
 });
 formatter.match({
   "location": "CreateContactStepSpec.i_see_the_logged_in_page()"
 });
 formatter.result({
-  "duration": 1095165083,
+  "duration": 1061692004,
   "status": "passed"
 });
 formatter.match({
   "location": "CreateContactStepSpec.i_select_the_contact_link()"
 });
 formatter.result({
-  "duration": 217734292,
+  "duration": 409169180,
   "status": "passed"
 });
 formatter.match({
   "location": "CreateContactStepSpec.select_the_New_button()"
 });
 formatter.result({
-  "duration": 288246827,
+  "duration": 192933958,
   "status": "passed"
 });
 formatter.match({
@@ -202,14 +202,14 @@ formatter.match({
   "location": "CreateContactStepSpec.user_enters(String,String,String,String)"
 });
 formatter.result({
-  "duration": 1932953253,
+  "duration": 2427030991,
   "status": "passed"
 });
 formatter.match({
   "location": "CreateContactStepSpec.select_save_button()"
 });
 formatter.result({
-  "duration": 200641673,
+  "duration": 201020032,
   "status": "passed"
 });
 });
