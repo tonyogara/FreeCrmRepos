@@ -69,7 +69,7 @@ public class CreateContactStepSpec extends TestBase
 		contactPage.setLastName(lName);
 		contactPage.setMiddleName(mName);
 		contactPage.setCompanyName(comName);
-		
+		contactPage.selectFirstOptionCompanyName();
 	}
 	
 	
@@ -78,7 +78,7 @@ public class CreateContactStepSpec extends TestBase
 	public void select_save_button() throws Throwable 
 	{
 		contactPage = new ContactPage();
-		contactPage.selectSaveButton();
+		contactPage.selectSaveBtn();
 	}
 
 	@Then("^the contact is saved successfully$")

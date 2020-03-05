@@ -14,7 +14,8 @@ Feature: Check contact creation
 
     Examples: 
       | firstname  | lastname   | middlename 	| companyname  |
-      | adam			 | ant		    | middle_name | adam_company |
+      | adam_first | adam_last  | adam_middle | adam_company |
+      | bob_first	 | bob_last	  | bob_middle  | bob_company  |
 
       
       

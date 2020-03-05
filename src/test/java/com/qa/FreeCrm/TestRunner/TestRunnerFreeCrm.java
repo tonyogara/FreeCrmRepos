@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import com.cucumber.listener.Reporter;
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+
+import com.qa.FreeCrm.util.ConfigFileReader;
 import com.qa.FreeCrm.util.TestUtil;
 import com.qa.FreeCrm.TestBase.TestBase;
 
@@ -21,12 +23,14 @@ import com.qa.FreeCrm.TestBase.TestBase;
 
 
 
-public class TestRunnerFreeCrm extends TestBase
+public class TestRunnerFreeCrm
 {
 	
 	@AfterClass
-	public static void writeExtentReport() {
-		String reportConfigurationPath = prop.getProperty("reportConfigPath");
+	public static void writeExtentReport()
+	{
+		ConfigFileReader cfr = new ConfigFileReader();
+		String reportConfigurationPath = cfr.prop.getProperty("reportConfigPath");
 		//Reporter.loadXMLConfig(new File(FileReaderManager.getInstance().getConfigReader().getReportConfigPath()));
 		Reporter.loadXMLConfig(reportConfigurationPath);
 		

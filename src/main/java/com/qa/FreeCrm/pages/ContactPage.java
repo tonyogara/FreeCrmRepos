@@ -26,11 +26,13 @@ public class ContactPage extends TestBase
 	@FindBy(name="middle_name")
 	WebElement middleName;
 	
-	//Company element identifier
-	//@FindBy(xpath=".//input[@name=‘company’]")
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/input[1]")
 	WebElement companyName;
 	
+	//--old html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[3]
+	//--/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/form[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]")
+	WebElement companyNameFirstElement;
 	
 	//Save button
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/button[2]")
@@ -77,10 +79,32 @@ public class ContactPage extends TestBase
 	{
 		companyName.sendKeys(cname);
 		companyName.click();
+		companyName.click();
+	}
+	
+	public void selectSaveBtn()
+	{
+		saveBtn.click();
 	}
 	
 	
-	
+	public void selectFirstOptionCompanyName()
+	{
+		System.out.println("In the selectFirstOptionCompanyName method");
+		Boolean chkIfSelected = companyNameFirstElement.isDisplayed();
+		System.out.println("Check if the option in the company name search is selected: " + chkIfSelected);
+		if (chkIfSelected)
+		{
+			companyNameFirstElement.click();
+		}
+		else
+		{
+			System.out.println("Item has not been selected");
+		}
+		
+		
+		
+	}	
 	
 	
 	
