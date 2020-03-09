@@ -3,6 +3,11 @@ package com.qa.FreeCrm.StepSpecifications;
 import cucumber.api.java.en.Given;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.FreeCrm.TestBase.*;
 import com.qa.FreeCrm.pages.ContactPage;
@@ -12,11 +17,15 @@ import com.qa.FreeCrm.pages.LoginPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
+import java.util.concurrent.TimeUnit; 
+
 public class CreateContactStepSpec extends TestBase 
 {
 	
 	HomePage hpg;
 	ContactPage contactPage;
+	String savedContactName;
+	Boolean nameFlag;
 	
 	
 	
@@ -31,7 +40,7 @@ public class CreateContactStepSpec extends TestBase
 	}
 	
 	
-	@Given("^I enter details$")
+	@Given("^I enter login details$")
 	public void i_enter_details() throws Throwable 
 	{
 		LoginPage lpge = new LoginPage();
@@ -68,10 +77,21 @@ public class CreateContactStepSpec extends TestBase
 		contactPage.setFirstName(fName);
 		contactPage.setLastName(lName);
 		contactPage.setMiddleName(mName);
-		contactPage.setCompanyName(comName);
-		contactPage.selectFirstOptionCompanyName();
+		//contactPage.setCompanyName(comName);
+		//contactPage.selectFirstOptionCompanyName();
 	}
 	
+	
+	//@When("^user enters first name {fName} and last name {lName} and middle name {mName}$")
+		@When("^user enters first name \\\"(.*)\\\" and last name \\\"(.*)\\\" and middle name \\\"(.*)\\\"$")
+		public void user_enters(String fName, String lName, String mName) throws Throwable {
+			contactPage = new ContactPage();
+			contactPage.setFirstName(fName);
+			contactPage.setLastName(lName);
+			contactPage.setMiddleName(mName);
+			//contactPage.setCompanyName(comName);
+			//contactPage.selectFirstOptionCompanyName();
+		}
 	
 	
 	@When("^select save button$")
@@ -81,10 +101,23 @@ public class CreateContactStepSpec extends TestBase
 		contactPage.selectSaveBtn();
 	}
 
-	@Then("^the contact is saved successfully$")
-	public void the_contact_is_saved_successfully() throws Throwable 
-	{
-	    
+	
+	
+	@Then("^the contact is saved successfully as saved \"([^\"]*)\"$")
+	public void the_contact_is_saved_successfully_as_saved(String arg1) throws Throwable {
+		
+		contactPage = new ContactPage();
+		//Thread.sleep(3000);
+		savedContactName = contactPage.getSavedContactName();
+		//Try to insert an explicit wait for the text to change..probably use an explicit wait
+		
+		WebDriverWait wait = new WebDriverWait(driver,30);
+		wait.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[1]/div[1]"), "Create New Contact")); 	
+		
+				
+		savedContactName = contactPage.getSavedContactName();
+			
+		System.out.println("Saved contact name is :" + savedContactName);
 	}
 
 		

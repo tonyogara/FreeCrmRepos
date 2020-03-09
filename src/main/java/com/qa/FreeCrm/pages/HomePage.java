@@ -35,6 +35,10 @@ public class HomePage extends TestBase
 	WebElement deleteBtn;
 	
 	
+	//--/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]")
+	WebElement savedContact;
+	
 	public HomePage()
 	{
 		PageFactory.initElements(driver, this);
