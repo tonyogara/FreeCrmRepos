@@ -104,20 +104,14 @@ public class CreateContactStepSpec extends TestBase
 	
 	
 	@Then("^the contact is saved successfully as saved \"([^\"]*)\"$")
-	public void the_contact_is_saved_successfully_as_saved(String arg1) throws Throwable {
-		
-		contactPage = new ContactPage();
-		//Thread.sleep(3000);
-		savedContactName = contactPage.getSavedContactName();
+	public void the_contact_is_saved_successfully_as_saved(String expectedFirstLastName) throws Throwable {
+		contactPage = new ContactPage();	
+		//savedContactName = contactPage.getSavedContactName();
 		//Try to insert an explicit wait for the text to change..probably use an explicit wait
-		
 		WebDriverWait wait = new WebDriverWait(driver,30);
 		wait.until(ExpectedConditions.invisibilityOfElementWithText(By.xpath("/html/body/div[1]/div/div[2]/div[2]/div/div[1]/div[1]"), "Create New Contact")); 	
-		
-				
 		savedContactName = contactPage.getSavedContactName();
-			
-		System.out.println("Saved contact name is :" + savedContactName);
+		Assert.assertEquals(expectedFirstLastName, savedContactName);
 	}
 
 		

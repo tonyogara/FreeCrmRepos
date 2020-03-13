@@ -19,23 +19,19 @@ public class HomePage extends TestBase
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/a[3]/span[1]")
 	WebElement contactLink;
-	
 				   
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/input[1]")
 	WebElement searchBox;
 	
-	//--/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]
-	//--/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]")				
-	//--/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]")
 	WebElement searchResultCheckBox;
 	
+	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/a[1]")
+	WebElement searchResultToBeDeleted;
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/button[2]")
 	WebElement deleteBtn;
 	
-	
-	//--/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]")
 	WebElement savedContact;
 	
@@ -71,7 +67,7 @@ public class HomePage extends TestBase
 	
 	public void selectSearchResultForAdam()
 	{
-		
+		/*
 		Boolean chkSelected = searchResultCheckBox.isDisplayed();
 		System.out.println("Check if searchResultCheckBox is displayed: " + chkSelected);
 		Boolean checkIfBoxIsSelected = searchResultCheckBox.isSelected();
@@ -79,6 +75,10 @@ public class HomePage extends TestBase
 		searchResultCheckBox.click();
 		Boolean chkSelectedNow = searchResultCheckBox.isSelected();
 		System.out.println("Check box selected is: " + chkSelectedNow);
+		*/
+		System.out.println("Before searchResultToBeDeleted");
+		searchResultToBeDeleted.click();
+		
 	}
 	
 	

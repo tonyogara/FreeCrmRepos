@@ -15,7 +15,11 @@ import com.qa.FreeCrm.util.TestUtil;
 import com.qa.FreeCrm.TestBase.TestBase;
 
 @RunWith(Cucumber.class) 
-@CucumberOptions(features="src/main/resources/Features/ContactCreation.feature", glue="com.qa.FreeCrm.StepSpecifications",
+//{"classpath:features"},
+//{"ContactCreation.feature", "ContactDeletion.feature"}
+//@CucumberOptions(features={"src/main/resources/Features/ContactCreation.feature", "src/main/resources/Features/ContactDeletion.feature"},
+@CucumberOptions(features={"src/main/resources/Features/ContactDeletion.feature"},
+							glue="com.qa.FreeCrm.StepSpecifications",
 							plugin = {"pretty", "html:target/cucumber",
 									"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"
 							})

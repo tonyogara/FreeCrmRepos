@@ -104,7 +104,7 @@ public class ContactPage extends TestBase
 	
 	public String getSavedContactName()
 	{
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		//driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		return savedContact.getText();
 	}
 	
