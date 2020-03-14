@@ -2,11 +2,8 @@ package com.qa.FreeCrm.pages;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-
 import com.qa.FreeCrm.TestBase.TestBase;
 import com.qa.FreeCrm.pages.ContactPage;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.Keys;
 
@@ -15,25 +12,25 @@ public class HomePage extends TestBase
 {
 
 	@FindBy(xpath="/html/body/div[1]/div/div[2]/div[2]/div/div/div[2]/div[1]/div/div[1]/div")
-	WebElement contactActivity;
+	private WebElement contactActivity;
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[1]/a[3]/span[1]")
-	WebElement contactLink;
+	private WebElement contactLink;
 				   
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/input[1]")
-	WebElement searchBox;
+	private WebElement searchBox;
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[1]/div[1]")
-	WebElement searchResultCheckBox;
+	private WebElement searchResultCheckBox;
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr[1]/td[2]/a[1]")
-	WebElement searchResultToBeDeleted;
+	private WebElement searchResultToBeDeleted;
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/button[2]")
-	WebElement deleteBtn;
+	private WebElement deleteBtn;
 	
 	@FindBy(xpath="/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[1]/div[1]")
-	WebElement savedContact;
+	private WebElement savedContact;
 	
 	public HomePage()
 	{
@@ -59,26 +56,14 @@ public class HomePage extends TestBase
 		String searchBoxText = searchBox.getText();
 		System.out.println("Search box text is " + searchBoxText);
 		searchBox.sendKeys(entryDetails);
-		//driver.findElement(By.id("Value")).sendKeys(Keys.ENTER); 
-		//driver.findElement(By.id("Value")).sendKeys(Keys.RETURN);
 		searchBox.sendKeys(Keys.ENTER);
 	}
 	
 	
 	public void selectSearchResultForAdam()
 	{
-		/*
-		Boolean chkSelected = searchResultCheckBox.isDisplayed();
-		System.out.println("Check if searchResultCheckBox is displayed: " + chkSelected);
-		Boolean checkIfBoxIsSelected = searchResultCheckBox.isSelected();
-		System.out.println("Check if box is selected :" + checkIfBoxIsSelected);
-		searchResultCheckBox.click();
-		Boolean chkSelectedNow = searchResultCheckBox.isSelected();
-		System.out.println("Check box selected is: " + chkSelectedNow);
-		*/
 		System.out.println("Before searchResultToBeDeleted");
-		searchResultToBeDeleted.click();
-		
+		searchResultToBeDeleted.click();	
 	}
 	
 	

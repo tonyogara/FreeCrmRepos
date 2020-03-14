@@ -5,10 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-
 import com.qa.FreeCrm.util.TestUtil;
 
 
@@ -66,8 +64,6 @@ public class TestBase
 		}
 		
 		
-		//String reportConfigPath = prop.getProperty("reportConfigPath");
-		
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(TestUtil.PAGE_LOAD_TIMEOUT, TimeUnit.SECONDS);
@@ -76,9 +72,5 @@ public class TestBase
 		
 		driver.get(prop.getProperty("autoLoginUrl"));
 		
-	}
-	
-	
-	
-	
+	}	
 }
