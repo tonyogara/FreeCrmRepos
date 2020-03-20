@@ -2,9 +2,9 @@ Feature: Delete Contact
 
 
   Scenario: Check deleting a contact
-    Given I am on the homepage page
+    Given I am on the login page
     And I enter login details
-    When I retrieve contact detail "adam"
-    Then I can delete the contact details successfully
+    When I search contact details for "bob"
+    Then I can purge the contact "bob_first bob_middle bob_last" details successfully
 
   
