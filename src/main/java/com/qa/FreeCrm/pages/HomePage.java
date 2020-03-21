@@ -2,6 +2,9 @@ package com.qa.FreeCrm.pages;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import com.qa.FreeCrm.TestBase.TestBase;
 import com.qa.FreeCrm.pages.ContactPage;
 import org.openqa.selenium.WebElement;
@@ -11,7 +14,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-
+//class='trash icon
 public class HomePage extends TestBase 
 {
 
@@ -70,9 +73,9 @@ public class HomePage extends TestBase
 	//It needs to search for the row depending on the contact that was passed in through  
 	//the feature file
 	//public void selectSearchResultForAdam()
-	public void searchForContactToDelete(String contactToDelete)
+	public void searchForContactToDelete(String contactToDelete) throws InterruptedException
 	{
-		//System.out.println("Before searchResultToBeDeleted");
+		System.out.println("In searchForContactToDelete");
 		//searchResultToBeDeleted.click();	
 		
 		//1. Loop through the list looking for contactToDelete
@@ -81,21 +84,32 @@ public class HomePage extends TestBase
 		
 		int tdCount = 1;
 		int rowCount = 0;
+		System.out.println("After counts initialised");
 		List <WebElement> contactList = driver.findElements(By.xpath(
 				"//table[@class='ui celled selectable top attached table']//tbody//tr"));  
-		
+		System.out.println("After List <WebElement>");
 		for (WebElement ele : contactList) 
 		{
+			System.out.println("Start of For loop");
 			rowCount++;
 			tdCount++;    
-		    if(ele.getText().equalsIgnoreCase(contactToDelete))
+			System.out.println("Before If");
+			String contact = ele.getText();
+		    if(contact.equalsIgnoreCase(contactToDelete));
 		    {
+		    	System.out.println("Start of If");
 		    	
+		    	//getText
 		    	//a[contains(text(),'bob_first bob_middle bob_last')]
 		    	//WebElement chkBoxEle = driver.findElement(By.xpath("/html[1]/body[1]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[2]/table[1]/tbody[1]/tr["+rowCount+"]/td["+tdCount+"]"));
 		    	WebElement chkBoxEle = driver.findElement(By.xpath(
 		    			"//a[contains(text(),'bob_first bob_middle bob_last')]"));
+		    	System.out.println("Before Thread");
+		    	//Thread.sleep(3000);
+		    	System.out.println("After Thread");
+		    	System.out.println("Before Thread");
 		    	chkBoxEle.click();	
+		    	System.out.println("After click");
 		    	System.out.println("Got to here");
 		    }		    	
 		}
@@ -129,8 +143,13 @@ public class HomePage extends TestBase
 	}
 	*/
 	
-	public void deleteContactEntry()
+	public void deleteContactEntry() throws InterruptedException
 	{
+		
+//		WebDriverWait wait = new WebDriverWait(driver,30);
+//		wait.until(ExpectedConditions.visibilityOf(deleteBtn));
+		//Thread.sleep(3000);
+		
 		deleteBtn.click();
 	}
 	

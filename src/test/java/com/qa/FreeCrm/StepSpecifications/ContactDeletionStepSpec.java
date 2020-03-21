@@ -16,6 +16,7 @@ import com.qa.FreeCrm.pages.HomePage;
 import com.qa.FreeCrm.pages.RubbishBinPage;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import net.bytebuddy.matcher.ModifierMatcher.Mode;
 
 
 public class ContactDeletionStepSpec extends TestBase
@@ -58,22 +59,19 @@ public class ContactDeletionStepSpec extends TestBase
 		hpg.searchForContactToDelete(contactToBeDeleted);
 		hpg.deleteContactEntry();
 		
-		WebDriverWait wait = new WebDriverWait(driver,30);
-		WebElement we = driver.findElement(By.xpath("//button[@class='ui red button']"));
-		wait.until(ExpectedConditions.visibilityOf(we));
+//		WebDriverWait wait = new WebDriverWait(driver,30);
+//		WebElement we = driver.findElement(By.xpath("//button[@class='ui red button']"));
+//		wait.until(ExpectedConditions.visibilityOf(we));
 		
 		cdpupg.selectContfirmDeleteBtn();
-		//Need to select the rubbish bin icon
-		//--/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/button[2]
 		
-		driver.findElement(By.xpath(
-				"/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[3]/div[2]/button[2]")).click();
-		
-		//rbpg.purgeSpecifiedContact(contactToBeDeleted);
-		//rbpg.selectPurgeSelectButton();
+		rbpg.selectRubbishBinIcon();
 		rbpg.purgeSpecifiedContact(contactToBeDeleted);
 		rbpg.selectPurgeSelectButton();
+		Thread.sleep(1000);
 		cppp.selectDeleteForeverBtn();
+		
+		
 	}
 	
 	

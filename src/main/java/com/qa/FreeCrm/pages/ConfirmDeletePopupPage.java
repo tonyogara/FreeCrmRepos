@@ -22,9 +22,6 @@ public class ConfirmDeletePopupPage extends TestBase
 	
 	public void selectContfirmDeleteBtn()
 	{
-		//wait until the elemet is visible
-		
-		
 		deletionBtn.click();
 	}
 	

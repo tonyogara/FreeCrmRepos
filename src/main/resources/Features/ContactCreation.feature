@@ -13,8 +13,8 @@ Feature: Check contact creation
 
     Examples: 
       | firstname  | lastname  | middlename  | DisplayedContactName  |
-      | adam_first | adam_last | adam_middle | adam_first adam_last |
+      #| adam_first | adam_last | adam_middle | adam_first adam_last |
       | bob_first  | bob_last  | bob_middle  | bob_first bob_last    |
       #| bob_first  | bob_last  | bob_middle  | bob_first bob_last    |
       #| bob_first  | bob_last  | bob_middle  | bob_first bob_last    |
-			| con_first  | con_last  | con_middle  | con_first con_last    |
+			#| con_first  | con_last  | con_middle  | con_first con_last    |

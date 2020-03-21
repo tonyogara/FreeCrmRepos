@@ -13,9 +13,9 @@ import com.qa.FreeCrm.util.ConfigFileReader;
 
 @RunWith(Cucumber.class) 
 //{"classpath:features"},
-//@CucumberOptions(features={"src/main/resources/Features/ContactCreation.feature", "src/main/resources/Features/ContactDeletion.feature"},
+@CucumberOptions(features={"src/main/resources/Features/ContactCreation.feature", "src/main/resources/Features/ContactDeletion.feature"},
 //@CucumberOptions(features={"src/main/resources/Features/ContactCreation.feature"},
-@CucumberOptions(features={"src/main/resources/Features/ContactDeletion.feature"},
+//@CucumberOptions(features={"src/main/resources/Features/ContactDeletion.feature"},
 							glue="com.qa.FreeCrm.StepSpecifications",
 							plugin = {"pretty", "html:target/cucumber",
 									"com.cucumber.listener.ExtentCucumberFormatter:target/cucumber-reports/report.html"
